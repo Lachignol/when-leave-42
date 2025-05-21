@@ -6,7 +6,7 @@
 /*   By: ascordil <ascordil@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 01:17:07 by ascordil          #+#    #+#             */
-/*   Updated: 2025/05/21 01:41:42 by ascordil         ###   ########.fr       */
+/*   Updated: 2025/05/21 22:46:48 by ascordil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 
 	if (argc != 4) 
 		return (printf("Usage : %s <numero_ligne> <station> <type de transport> \nExemple : %s 14 Madeleine METRO\n", argv[0], argv[0]), 1);
-	if (parse_csv(arret, ligne, code_to_search, transport_type, argv))
+	if (parse_csv(arret, ligne, &code_to_search, transport_type, argv))
 	{
 		char content[BUFFER_SIZE] = {0};
 		CURLcode res;

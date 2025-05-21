@@ -6,13 +6,13 @@
 /*   By: ascordil <ascordil@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 00:54:11 by ascordil          #+#    #+#             */
-/*   Updated: 2025/05/21 01:40:47 by ascordil         ###   ########.fr       */
+/*   Updated: 2025/05/21 22:42:04 by ascordil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ratp.h"
 
-int	parse_csv(char *arret, char *ligne, char *code_to_search, char *transport_type, char **argv)
+int	parse_csv(char *arret, char *ligne, char **code_to_search, char *transport_type, char **argv)
 {
 	char line[BUFFER_SIZE];
 	FILE *fp = fopen("assets/gares.csv", "r");
@@ -30,7 +30,7 @@ int	parse_csv(char *arret, char *ligne, char *code_to_search, char *transport_ty
         	arret  = strtok(NULL, ";");
         	char *v5  = strtok(NULL, ";");
         	char *v6  = strtok(NULL, ";");
-        	code_to_search  = strtok(NULL, ";");
+        	*code_to_search  = strtok(NULL, ";");
         	char *v8  = strtok(NULL, ";");
         	char *v9  = strtok(NULL, ";");
         	char *v10 = strtok(NULL, ";");
@@ -63,7 +63,7 @@ int	parse_csv(char *arret, char *ligne, char *code_to_search, char *transport_ty
             arret  ? arret  : "",
             v5  ? v5  : "",
             v6  ? v6  : "",
-            code_to_search  ? code_to_search  : "",
+            *code_to_search  ? *code_to_search  : "",
             v8  ? v8  : "",
             v9  ? v9  : "",
             v10 ? v10 : "",
@@ -75,7 +75,7 @@ int	parse_csv(char *arret, char *ligne, char *code_to_search, char *transport_ty
         );
 	if (strcmp(ligne, argv[1])==0 && strcmp(transport_type, argv[3])==0 && strcmp(arret, argv[2]) == 0)
 	{
-		printf("Pour la ligne de %s %s a l'arret %s :",transport_type, ligne, arret);
+		printf("Pour la ligne de %s %s a l'arret %s :\n",transport_type, ligne, arret);
     		return (fclose(fp), 1);
 	}
     }
