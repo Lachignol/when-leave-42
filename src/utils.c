@@ -6,11 +6,19 @@
 /*   By: ascordil <ascordil@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 00:47:19 by ascordil          #+#    #+#             */
-/*   Updated: 2025/05/21 01:42:58 by ascordil         ###   ########.fr       */
+/*   Updated: 2025/05/23 00:37:58 by ascordil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ratp.h"
+
+void to_uppercase(char *str) 
+{
+    while (*str) {
+        *str = toupper((unsigned char)*str);
+        str++;
+    }
+}
 
 char	*trim(char *str)
 {
@@ -32,8 +40,8 @@ void	print_formatted_datetime(const char *iso)
 	struct tm	tm;
 	char		out[64];
 
-	memset(&tm, 0, sizeof(struct tm));
-	if (strptime(iso, "%Y-%m-%dT%H:%M:%S", &tm) == NULL)
+	memset(&tm, 0, sizeof(tm));
+	if (strptime(iso, "%Y-%m-%dT%H:%M:%S", &tm) == 0)
 	{
 		printf("%s\n", iso);
 		return ;

@@ -6,7 +6,7 @@
 /*   By: ascordil <ascordil@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 23:53:05 by ascordil          #+#    #+#             */
-/*   Updated: 2025/05/21 01:24:43 by ascordil         ###   ########.fr       */
+/*   Updated: 2025/05/23 00:44:33 by ascordil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ CURLcode	do_request(char *stop_point, char *content)
 	return (res);
 
 }
-
